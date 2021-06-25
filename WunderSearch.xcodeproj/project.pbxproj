@@ -7,19 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		51192C0E2685F3C6003678FD /* ImageEncoder.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 51192C0D2685F3C6003678FD /* ImageEncoder.mlmodel */; };
+		51192C1126861C02003678FD /* known_words.json in Resources */ = {isa = PBXBuildFile; fileRef = 51192C1026861C02003678FD /* known_words.json */; };
+		5161FE16267C820D00000181 /* SearchHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5161FE15267C820D00000181 /* SearchHandler.swift */; };
+		5161FE1F267CF21600000181 /* TextEncoder.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5161FE1E267CF21600000181 /* TextEncoder.mlmodel */; };
+		51BE6CAB2683DA7700F29307 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BE6CAA2683DA7700F29307 /* ResultsViewController.swift */; };
 		51D5247E267C75C900F1D683 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D5247D267C75C900F1D683 /* AppDelegate.swift */; };
 		51D52480267C75C900F1D683 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D5247F267C75C900F1D683 /* SceneDelegate.swift */; };
-		51D52482267C75C900F1D683 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D52481267C75C900F1D683 /* ViewController.swift */; };
 		51D52485267C75C900F1D683 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51D52483267C75C900F1D683 /* Main.storyboard */; };
 		51D52487267C75CC00F1D683 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51D52486267C75CC00F1D683 /* Assets.xcassets */; };
 		51D5248A267C75CC00F1D683 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51D52488267C75CC00F1D683 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		51192C0D2685F3C6003678FD /* ImageEncoder.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = ImageEncoder.mlmodel; sourceTree = "<group>"; };
+		51192C1026861C02003678FD /* known_words.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = known_words.json; sourceTree = "<group>"; };
+		5161FE15267C820D00000181 /* SearchHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHandler.swift; sourceTree = "<group>"; };
+		5161FE1E267CF21600000181 /* TextEncoder.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = TextEncoder.mlmodel; sourceTree = "<group>"; };
+		51BE6CAA2683DA7700F29307 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		51D5247A267C75C900F1D683 /* WunderSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WunderSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51D5247D267C75C900F1D683 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		51D5247F267C75C900F1D683 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		51D52481267C75C900F1D683 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		51D52484267C75C900F1D683 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		51D52486267C75CC00F1D683 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		51D52489267C75CC00F1D683 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -37,6 +45,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		51192C1326861C0A003678FD /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				51192C1026861C02003678FD /* known_words.json */,
+			);
+			path = assets;
+			sourceTree = "<group>";
+		};
+		5161FE11267C819800000181 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				51BE6CAA2683DA7700F29307 /* ResultsViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		5161FE13267C81A600000181 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				51D52483267C75C900F1D683 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5161FE14267C81BD00000181 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5161FE15267C820D00000181 /* SearchHandler.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		51D52471267C75C900F1D683 = {
 			isa = PBXGroup;
 			children = (
@@ -58,11 +98,15 @@
 			children = (
 				51D5247D267C75C900F1D683 /* AppDelegate.swift */,
 				51D5247F267C75C900F1D683 /* SceneDelegate.swift */,
-				51D52481267C75C900F1D683 /* ViewController.swift */,
-				51D52483267C75C900F1D683 /* Main.storyboard */,
+				5161FE14267C81BD00000181 /* Model */,
+				5161FE13267C81A600000181 /* View */,
+				5161FE11267C819800000181 /* Controller */,
 				51D52486267C75CC00F1D683 /* Assets.xcassets */,
 				51D52488267C75CC00F1D683 /* LaunchScreen.storyboard */,
 				51D5248B267C75CC00F1D683 /* Info.plist */,
+				5161FE1E267CF21600000181 /* TextEncoder.mlmodel */,
+				51192C0D2685F3C6003678FD /* ImageEncoder.mlmodel */,
+				51192C1326861C0A003678FD /* assets */,
 			);
 			path = WunderSearch;
 			sourceTree = "<group>";
@@ -127,6 +171,7 @@
 				51D5248A267C75CC00F1D683 /* LaunchScreen.storyboard in Resources */,
 				51D52487267C75CC00F1D683 /* Assets.xcassets in Resources */,
 				51D52485267C75C900F1D683 /* Main.storyboard in Resources */,
+				51192C1126861C02003678FD /* known_words.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,8 +182,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				51D52482267C75C900F1D683 /* ViewController.swift in Sources */,
+				5161FE1F267CF21600000181 /* TextEncoder.mlmodel in Sources */,
 				51D5247E267C75C900F1D683 /* AppDelegate.swift in Sources */,
+				51BE6CAB2683DA7700F29307 /* ResultsViewController.swift in Sources */,
+				51192C0E2685F3C6003678FD /* ImageEncoder.mlmodel in Sources */,
+				5161FE16267C820D00000181 /* SearchHandler.swift in Sources */,
 				51D52480267C75C900F1D683 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
