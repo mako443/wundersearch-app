@@ -24,7 +24,7 @@ class ResultsViewController: UICollectionViewController {
         // Register cell classes
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
-//        searchHandler.indexPhotos()
+        searchHandler.indexPhotos()
     }
     
     @IBAction func searchTapped(_ sender: UIBarButtonItem) {

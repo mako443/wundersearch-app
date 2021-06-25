@@ -22,16 +22,11 @@ class SearchHandler {
     let maxEncodeWords = 32
     
     init(){
-        print("SearchHandler()")
+        // Load models
         self.imageEncoder = try! VNCoreMLModel(for: ImageEncoder().model)
         self.textEncoder = TextEncoder()
         
-        // Encode the test image to verify model outputs
-//        let image: UIImage = #imageLiteral(resourceName: "test-image")
-//        print(image.size)
-//        let ciImage = CIImage(cgImage: image.cgImage!)
-//        self.encodeImage(model: self.imageEncoder, image: ciImage, localIdentifier: "test-image")
-        
+        // Load known words
         let path = Bundle.main.path(forResource: "known_words", ofType: "json")
         if path == nil {
             fatalError("known_words.json not found.")
@@ -40,10 +35,42 @@ class SearchHandler {
             let data = try Data(contentsOf: URL(fileURLWithPath: path!), options: .mappedIfSafe)
             let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
             self.knownWords = jsonResult as! Dictionary<String, Int>
-        }
-        catch {
+        } catch {
             print(error)
         }
+        
+        // Load previously indexed images
+        self.loadIndexedImages()
+        
+        // Encode the test image to verify model outputs
+        if(false) {
+            let image: UIImage = #imageLiteral(resourceName: "test-image")
+            print(image.size)
+            let ciImage = CIImage(cgImage: image.cgImage!)
+            self.encodeImage(model: self.imageEncoder, image: ciImage, localIdentifier: "test-image")
+        }
+    }
+    
+    // TODO: care to re-index images on model update
+    func loadIndexedImages(){
+        let userDefaults = UserDefaults.standard
+        if let loadedDescriptors = userDefaults.object(forKey: "image_descriptors") as? [String:[Float]] {
+            for (id, descriptor) in loadedDescriptors {
+                self.indexedImages[id] = try! MLMultiArray(descriptor)
+            }
+        } else {
+            print("image descriptors could not be loaded.")
+        }
+    }
+    
+    func saveIndexedImages(){
+        let userDefaults = UserDefaults.standard
+        var saveDescriptors: [String:[Float]] = [:]
+        for (id, descriptor) in self.indexedImages{
+            saveDescriptors[id] = Array(try! UnsafeBufferPointer<Float>(descriptor))
+        }
+        userDefaults.set(saveDescriptors, forKey: "image_descriptors")
+        print("Saved indexed images.")
     }
     
     func dotProduct(a: MLMultiArray, b: MLMultiArray) -> Float {
@@ -61,8 +88,6 @@ class SearchHandler {
     }
     
     private func getTopKPhotos(textDescriptor: MLMultiArray, k: Int = 25) -> [UIImage]{
-//        print(textDescriptor)
-        
         var scoresDict: [String: Float] = [:] // [localIdentifier: score]
         for (id, imageDescriptor) in self.indexedImages {
             scoresDict[id] = self.dotProduct(a: textDescriptor, b: imageDescriptor)
@@ -110,7 +135,7 @@ class SearchHandler {
         do {
             let inputArray = try MLMultiArray(shape: [1, 32], dataType: MLMultiArrayDataType.float32)
             for i in 0..<min(textSplit.count, 32){
-                inputArray[i] = 2.0 // TODO: load actual index dict
+                inputArray[i] = 2.0 // TODO: load actual index dict and make dictionary variable size
             }
             
             let output = try! textEncoder.prediction(input_1: inputArray)
@@ -161,10 +186,6 @@ class SearchHandler {
         }
     }
     
-    private func prepareImage(image: CIImage) {
-        
-    }
-    
     func indexPhotos() {
         let requestOptions = PHImageRequestOptions()
         requestOptions.isSynchronous = false
@@ -201,6 +222,11 @@ class SearchHandler {
                     }
                     else {
                         print("Image is nil.")
+                    }
+                    
+                    // Once all images are indexed, save them to UserDefaults TODO: find a better trigger for this
+                    if i == results.count - 1 {
+                        self.saveIndexedImages()
                     }
                 }
             }
