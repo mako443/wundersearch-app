@@ -40,7 +40,8 @@ class SearchHandler {
         }
         
         // Load previously indexed images
-        self.loadIndexedImages()
+        // TODO: add version number or similar in CoreMLTools, re-index if different
+//        self.loadIndexedImages()
         
         // Encode the test image to verify model outputs
         if(false) {
@@ -139,7 +140,7 @@ class SearchHandler {
             }
             
             let output = try! textEncoder.prediction(input_1: inputArray)
-            let textDescriptor = output._64
+            let textDescriptor = output._65
             print(textDescriptor.shape)
             
             var topKPhotos = self.getTopKPhotos(textDescriptor: textDescriptor)

@@ -40,11 +40,14 @@
                     </collectionView>
                     <navigationItem key="navigationItem" id="hyj-Ui-AGT">
                         <nil key="title"/>
-                        <textField key="titleView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What are you looking for?" textAlignment="natural" minimumFontSize="17" id="tlp-sM-BV1">
-                            <rect key="frame" x="82" y="5" width="250" height="34"/>
+                        <textField key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What are you looking for?" textAlignment="natural" minimumFontSize="17" id="tlp-sM-BV1">
+                            <rect key="frame" x="52.5" y="5" width="300" height="34"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <action selector="textChanged:" destination="67z-TE-Hrz" eventType="editingChanged" id="s3Y-gz-dAw"/>
+                            </connections>
                         </textField>
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="Dva-p7-khZ">
                             <connections>

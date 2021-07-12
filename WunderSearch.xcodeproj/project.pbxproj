@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		51192C0E2685F3C6003678FD /* ImageEncoder.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 51192C0D2685F3C6003678FD /* ImageEncoder.mlmodel */; };
-		51192C1126861C02003678FD /* known_words.json in Resources */ = {isa = PBXBuildFile; fileRef = 51192C1026861C02003678FD /* known_words.json */; };
 		5161FE16267C820D00000181 /* SearchHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5161FE15267C820D00000181 /* SearchHandler.swift */; };
-		5161FE1F267CF21600000181 /* TextEncoder.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5161FE1E267CF21600000181 /* TextEncoder.mlmodel */; };
+		51942FA5269C7F5B00FBF354 /* TextEncoder.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 51942FA4269C7F5B00FBF354 /* TextEncoder.mlmodel */; };
+		51942FA8269C7F6000FBF354 /* ImageEncoder.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 51942FA7269C7F6000FBF354 /* ImageEncoder.mlmodel */; };
+		51942FAB269C7F7F00FBF354 /* known_words.json in Resources */ = {isa = PBXBuildFile; fileRef = 51942FAA269C7F7F00FBF354 /* known_words.json */; };
 		51BE6CAB2683DA7700F29307 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BE6CAA2683DA7700F29307 /* ResultsViewController.swift */; };
 		51D5247E267C75C900F1D683 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D5247D267C75C900F1D683 /* AppDelegate.swift */; };
 		51D52480267C75C900F1D683 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D5247F267C75C900F1D683 /* SceneDelegate.swift */; };
@@ -20,10 +20,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		51192C0D2685F3C6003678FD /* ImageEncoder.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = ImageEncoder.mlmodel; sourceTree = "<group>"; };
-		51192C1026861C02003678FD /* known_words.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = known_words.json; sourceTree = "<group>"; };
 		5161FE15267C820D00000181 /* SearchHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHandler.swift; sourceTree = "<group>"; };
-		5161FE1E267CF21600000181 /* TextEncoder.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = TextEncoder.mlmodel; sourceTree = "<group>"; };
+		51942FA4269C7F5B00FBF354 /* TextEncoder.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = TextEncoder.mlmodel; sourceTree = "<group>"; };
+		51942FA7269C7F6000FBF354 /* ImageEncoder.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = ImageEncoder.mlmodel; sourceTree = "<group>"; };
+		51942FAA269C7F7F00FBF354 /* known_words.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = known_words.json; sourceTree = "<group>"; };
 		51BE6CAA2683DA7700F29307 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		51D5247A267C75C900F1D683 /* WunderSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WunderSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51D5247D267C75C900F1D683 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -48,7 +48,7 @@
 		51192C1326861C0A003678FD /* assets */ = {
 			isa = PBXGroup;
 			children = (
-				51192C1026861C02003678FD /* known_words.json */,
+				51942FAA269C7F7F00FBF354 /* known_words.json */,
 			);
 			path = assets;
 			sourceTree = "<group>";
@@ -98,14 +98,14 @@
 			children = (
 				51D5247D267C75C900F1D683 /* AppDelegate.swift */,
 				51D5247F267C75C900F1D683 /* SceneDelegate.swift */,
+				51942FA4269C7F5B00FBF354 /* TextEncoder.mlmodel */,
+				51942FA7269C7F6000FBF354 /* ImageEncoder.mlmodel */,
 				5161FE14267C81BD00000181 /* Model */,
 				5161FE13267C81A600000181 /* View */,
 				5161FE11267C819800000181 /* Controller */,
 				51D52486267C75CC00F1D683 /* Assets.xcassets */,
 				51D52488267C75CC00F1D683 /* LaunchScreen.storyboard */,
 				51D5248B267C75CC00F1D683 /* Info.plist */,
-				5161FE1E267CF21600000181 /* TextEncoder.mlmodel */,
-				51192C0D2685F3C6003678FD /* ImageEncoder.mlmodel */,
 				51192C1326861C0A003678FD /* assets */,
 			);
 			path = WunderSearch;
@@ -171,7 +171,7 @@
 				51D5248A267C75CC00F1D683 /* LaunchScreen.storyboard in Resources */,
 				51D52487267C75CC00F1D683 /* Assets.xcassets in Resources */,
 				51D52485267C75C900F1D683 /* Main.storyboard in Resources */,
-				51192C1126861C02003678FD /* known_words.json in Resources */,
+				51942FAB269C7F7F00FBF354 /* known_words.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,12 +182,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5161FE1F267CF21600000181 /* TextEncoder.mlmodel in Sources */,
 				51D5247E267C75C900F1D683 /* AppDelegate.swift in Sources */,
 				51BE6CAB2683DA7700F29307 /* ResultsViewController.swift in Sources */,
-				51192C0E2685F3C6003678FD /* ImageEncoder.mlmodel in Sources */,
 				5161FE16267C820D00000181 /* SearchHandler.swift in Sources */,
+				51942FA8269C7F6000FBF354 /* ImageEncoder.mlmodel in Sources */,
 				51D52480267C75C900F1D683 /* SceneDelegate.swift in Sources */,
+				51942FA5269C7F5B00FBF354 /* TextEncoder.mlmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -39,6 +39,32 @@ class ResultsViewController: UICollectionViewController {
         
         self.collectionView.reloadData()
     }
+    
+    @IBAction func textChanged(_ sender: UITextField) {
+        self.highlightText()
+    }
+    
+    func highlightText(){
+        if let text = searchField.text{
+            let words = text.components(separatedBy: " ")
+            var result = NSMutableAttributedString(string: "")
+            for i in 0..<words.count{
+                let word = words[i]
+                var attributes: [NSAttributedString.Key: Any]
+                if self.searchHandler.knownWords[word.lowercased()] != nil {
+                    attributes = [.foregroundColor: UIColor.black,]
+                } else {
+                    attributes = [.strikethroughStyle: NSUnderlineStyle.single.rawValue]
+                }
+                if i < words.count-1{
+                    result.append(NSAttributedString(string: word + " ", attributes: attributes))
+                } else {
+                    result.append(NSAttributedString(string: word, attributes: attributes))
+                }
+            }
+            self.searchField.attributedText = result
+        }
+    }
 }
 
 extension ResultsViewController {
